@@ -18,25 +18,28 @@ export class TablesComponent implements OnInit {
 
   ngOnInit() {
       this.tableData1 = {
-          headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
+          headerRow: [ 'ID', 'IOC Type', 'Indicator', 'Threat Actor', 'Validation Status', 'Last Seen' ],
           dataRows: [
-              ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-              ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-              ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-              ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-              ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-              ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
+              ['1', 'IP Address', '192.168.1.1', 'APT29', 'Validated', '2025-01-01'],
+              ['2', 'Domain', 'malicious-domain.com', 'Lazarus Group', 'Validated', '2025-01-15'],
+              ['3', 'Hash (SHA256)', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Unknown', 'Validated', '2025-01-12'],
+              ['4', 'URL', 'http://malicious-site.com/phishing', 'Fancy Bear', 'Pending Validation', '2025-01-18'],
+              ['5', 'Email Address', 'attacker@phishmail.com', 'Unknown', 'Validated', '2025-01-20'],
+              ['6', 'File Path', '/tmp/malicious_script.sh', 'APT41', 'Validated', '2025-01-22'],
+              
           ]
       };
+      
+    
       this.tableData2 = {
-          headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],
+          headerRow: [ 'ID', 'IOC Type',  'Indicator', 'Threat Actor', 'Validation Status', 'Last Seen' ],
           dataRows: [
-              ['1', 'Dakota Rice','$36,738', 'Niger', 'Oud-Turnhout' ],
-              ['2', 'Minerva Hooper', '$23,789', 'Curaçao', 'Sinaai-Waas'],
-              ['3', 'Sage Rodriguez', '$56,142', 'Netherlands', 'Baileux' ],
-              ['4', 'Philip Chaney', '$38,735', 'Korea, South', 'Overland Park' ],
-              ['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten', ],
-              ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester' ]
+              ['1', 'IP Address','192.168.1.2', 'APT30', 'validated','2024-02-02' ],
+              ['2', 'Domain', 'malicious-domain.com', 'Lazarus Group', 'validated', '2025-03-03'],
+              ['3', 'Hash (SHA256)', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'unknown', 'validated' ,'2025-04-04'],
+              ['4', 'URL', 'http://malicious-site.com/phishing', 'Fancy Bear', 'pending validation','2025-05-05' ],
+              ['5', 'Emain Address', 'attacker@phishmail.com', 'unknown', 'validated','2025-06-06' ],
+              ['6', 'File Path', '/tmp/malicious_script.sh', 'APT42', 'validated','2025-07-07' ]
           ]
       };
   }

@@ -1,0 +1,110 @@
+
+
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   // background-color: white;
+    background-image: url('/assets/img/sidebar-6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5); // Dark overlay (50% opacity)
+  }
+  
+//   .login-card {
+//     background: rgb(198, 182, 202);
+//     padding: 2rem;
+//     border-radius: 8px;
+//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//     width: 100%;
+//     max-width: 400px;
+//     text-align: center;
+//   }
+  .login-card {
+    background: linear-gradient(135deg, #463659, #000000); // Gradient: Dark purple to black
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); // Cool box shadow
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: white; // Set text color to white for better contrast
+  }
+  
+  
+  h2 {
+    margin-bottom: 1.5rem;
+    color: #d5c9c9;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  //  color: #555;
+    color: #d1c4e9; // Light purple for labels
+  }
+  
+//   input {
+//     width: 100%;
+//     padding: 0.75rem;
+//     border: 1px solid #ddd;
+//     border-radius: 4px;
+//     font-size: 1rem;
+    
+//   }
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #7e57c2; // Purple border for input fields
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1); // Semi-transparent white background
+    color: white; // White text for input fields
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #b39ddb; // Light purple border on focus
+    background-color: rgba(255, 255, 255, 0.2); // Slightly darker background on focus
+    outline: none; // Remove default outline
+  }
+  
+  
+  .login-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button:hover {
+   // background-color: #0056b3;
+    background-color: #c4b1eb; // Darker purple on hover
+  }
+  
+  .signup-text {
+    margin-top: 1rem;
+    color: #666;
+  }
+  
+  .signup-text a {
+   // color: #007bff;
+    color: #b39ddb; // Light purple for links
+    text-decoration: none;
+  }
+  
+  .signup-text a:hover {
+    text-decoration: underline;
+  }
