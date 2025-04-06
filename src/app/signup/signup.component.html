@@ -1,9 +1,8 @@
-
 <div class="signup-container">
-    <div class="signup-card">
-      <h2>Create Your Account</h2>
-      <form (ngSubmit)="onSubmit()">
-        <div class="form-row">
+  <div class="signup-card">
+    <h2>Create Your Account</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-row">
         <div class="form-group">
           <label for="fullname">Full Name</label>
           <input
@@ -11,6 +10,7 @@
             id="fullname"
             name="fullname"
             placeholder="Enter your full name"
+            [(ngModel)]="fullname"
             required
           />
         </div>
@@ -21,20 +21,20 @@
             id="email"
             name="email"
             placeholder="Enter your email"
+            [(ngModel)]="email"
             required
           />
         </div>
-    </div>
-    <div class="form-row">
+      </div>
+      <div class="form-row">
         <div class="form-group">
-          <label for="organization">
-            Organization
-          </label>
+          <label for="organization"> Organization </label>
           <input
             type="text"
             id="organization"
             name="organization"
             placeholder="Enter organization"
+            [(ngModel)]="organization"
             required
           />
         </div>
@@ -45,11 +45,12 @@
             id="password"
             name="password"
             placeholder="Create a password"
+            [(ngModel)]="password"
             required
           />
-          </div>
         </div>
-        <div class="form-row">
+      </div>
+      <div class="form-row">
         <div class="form-group">
           <label for="confirm-password">Confirm Password</label>
           <input
@@ -61,21 +62,21 @@
           />
         </div>
         <div class="form-group">
-            <label for="public-key">Public Key</label>
-            <input
-              type="password"
-              id="public-key"
-              name="public-key"
-              placeholder="Enter you Public Key"
-              required
-            />
-          </div>
-          </div>
-        <button type="submit" class="signup-button">Sign Up</button>
-      </form>
-      <p class="login-text">
-        Already have an account? <a routerLink="/login">Log in</a>
-      </p>
-    </div>
+          <label for="public_key">Public Key</label>
+          <input
+            type="password"
+            id="public_key"
+            name="public_key"
+            placeholder="Enter you Public Key"
+            [(ngModel)]="public_key"
+            required
+          />
+        </div>
+      </div>
+      <button type="submit" class="signup-button">Sign Up</button>
+    </form>
+    <p class="login-text">
+      Already have an account? <a routerLink="/login">Log in</a>
+    </p>
   </div>
-  
+</div>
