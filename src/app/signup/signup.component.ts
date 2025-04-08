@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   hidePassword: boolean = true; // Default password visibility
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.signupForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(6)]],
@@ -33,6 +33,8 @@ export class SignupComponent implements OnInit {
       organization: this.organization,
       publicKey: this.public_key,
     };
+    console.log(signupData);
+
     fetch("http://localhost:5000/auth/RegisterUser", {
       method: "POST",
       headers: {
@@ -40,11 +42,17 @@ export class SignupComponent implements OnInit {
       },
       body: JSON.stringify(signupData),
       credentials: "include",
-    }).then((res) => {
-      if (res.status == 200) {
-        return res.json();
-      }
-    });
+    })
+      .then((res) => {
+        if (res.status == 200) {
+          return res.json();
+        }
+      })
+      .then((data) => {
+        if (data) {
+          this.router.navigate(["/login"]);
+        }
+      });
   }
   // Toggle password visibility
   togglePasswordVisibility(input: HTMLInputElement) {
