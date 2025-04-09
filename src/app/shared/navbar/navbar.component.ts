@@ -74,7 +74,7 @@ export class NavbarComponent implements OnInit {
     })
       .then((res) => {
         if (res.status == 200) {
-          res.json();
+          return res;
         }
       })
       .then((data) => {

@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
+  errorMessage: string = "";
   email: string = "";
   password: string = "";
 
@@ -37,19 +38,12 @@ export class LoginComponent implements OnInit {
 
   login() {
     let loginData = { email: this.email, password: this.password };
+    if (!this.email || !this.password) {
+      this.errorMessage = "Emal and password are required";
+      return;
+    }
 
-    // Check if the entered credentials match the static credentials
-    // if (
-    //   this.email === this.staticCredentials.email &&
-    //   this.password === this.staticCredentials.password
-    // ) {
-
-    //   localStorage.setItem("isLoggedIn", "true"); // Store login state
-    //   this.router.navigate(["/dashboard"]); // Redirect to dashboard
-    // } else {
-    //   alert("Invalid email or password");
-    // }
-    const api = fetch("http://localhost:5000/auth/login", {
+    fetch("http://localhost:5000/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,17 +51,28 @@ export class LoginComponent implements OnInit {
       body: JSON.stringify(loginData),
       credentials: "include",
     })
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
+      .then(async (response) => {
+        console.log(response);
+        const resData = await response.json();
+        console.log(resData);
+
+        if (!response.ok) {
+          // Check if the error is a structured object
+          if (resData.error) {
+            const firstErrorKey = Object.keys(resData.error)[0];
+            this.errorMessage = resData.error[firstErrorKey];
+          } else {
+            this.errorMessage = "Login failed. Please try again.";
+          }
+          throw new Error(this.errorMessage);
         }
+
+        // Login successful
+        this.router.navigate(["/dashboard"]);
       })
-      .then((data) => {
-        if (data) {
-          this.router.navigate(["/dashboard"]);
-        }
-      })
-      .catch((err) => console.error("Login error:", err));
+      .catch((err) => {
+        console.error("Login error:", err);
+      });
   }
 
   onSubmit() {
