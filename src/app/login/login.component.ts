@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   login() {
     let loginData = { email: this.email, password: this.password };
     if (!this.email || !this.password) {
-      this.errorMessage = "Emal and password are required";
+      this.errorMessage = "Email and Password are required";
       return;
     }
 
@@ -52,10 +52,7 @@ export class LoginComponent implements OnInit {
       credentials: "include",
     })
       .then(async (response) => {
-        console.log(response);
         const resData = await response.json();
-        console.log(resData);
-
         if (!response.ok) {
           // Check if the error is a structured object
           if (resData.error) {

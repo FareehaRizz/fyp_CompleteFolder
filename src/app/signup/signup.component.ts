@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   password: string = "";
   organization: string = "";
   public_key: string = "";
+  errorMessage = "";
 
   signupForm: FormGroup;
   hidePassword: boolean = true; // Default password visibility
@@ -33,7 +34,8 @@ export class SignupComponent implements OnInit {
       organization: this.organization,
       publicKey: this.public_key,
     };
-    console.log(signupData);
+
+    this.errorMessage = "";
 
     fetch("http://localhost:5000/auth/RegisterUser", {
       method: "POST",
@@ -43,17 +45,24 @@ export class SignupComponent implements OnInit {
       body: JSON.stringify(signupData),
       credentials: "include",
     })
-      .then((res) => {
-        if (res.status == 200) {
+      .then(async (res) => {
+        if (res.ok) {
           return res.json();
+        } else {
+          const errorText = await res.text();
+          throw new Error(errorText || "Registration failed");
         }
       })
       .then((data) => {
         if (data) {
           this.router.navigate(["/login"]);
         }
+      })
+      .catch((error) => {
+        this.errorMessage = error.message;
       });
   }
+
   // Toggle password visibility
   togglePasswordVisibility(input: HTMLInputElement) {
     input.type = input.type === "password" ? "text" : "password";
