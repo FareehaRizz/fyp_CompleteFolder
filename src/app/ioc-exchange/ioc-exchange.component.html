@@ -1,0 +1,80 @@
+<div class="ioc-container">
+    <div class="card">
+      <h2>IOC Exchange</h2>
+  
+      <form (ngSubmit)="onShareIOC()" class="form-section">
+        <h3> Share an Indicator</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>IOC Type</label>
+            <select [(ngModel)]="newIOC.type" name="type" required>
+              <option *ngFor="let type of iocTypes" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Indicator</label>
+            <input type="text" [(ngModel)]="newIOC.value" name="value" required />
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label>Description</label>
+          <textarea [(ngModel)]="newIOC.description" name="description"></textarea>
+        </div>
+  
+        <button type="submit" class="btn-primary">Submit IOC</button>
+      </form>
+  
+      <hr />
+  
+      <form (ngSubmit)="onQueryIOC()" class="form-section">
+        <h3> Query Indicators</h3>
+  
+        <div class="form-row">
+          <div class="form-group">
+            <label>Search Indicator</label>
+            <input type="text" [(ngModel)]="queryTerm" name="queryTerm" placeholder="IP, Domain, Hash..." />
+          </div>
+          <div class="form-group">
+            <label>Threat Actor</label>
+            <input type="text" [(ngModel)]="filters.threatActor" name="threatActor" />
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select [(ngModel)]="filters.status" name="status">
+              <option value="">Any</option>
+              <option value="validated">Validated</option>
+              <option value="pending validation">Pending Validation</option>
+            </select>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn-secondary">Search</button>
+      </form>
+  
+      <div *ngIf="queryResults.length > 0" class="results">
+        <h4>Search Results</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Value</th>
+              <th>Actor</th>
+              <th>Status</th>
+              <th>Last Seen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let result of queryResults">
+              <td>{{ result.type }}</td>
+              <td>{{ result.value }}</td>
+              <td>{{ result.threatActor }}</td>
+              <td>{{ result.status }}</td>
+              <td>{{ result.lastSeen }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

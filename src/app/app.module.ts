@@ -23,6 +23,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { MatIconModule } from "@angular/material/icon";
+import { IocExchangeComponent } from './ioc-exchange/ioc-exchange.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { MatIconModule } from "@angular/material/icon";
     AdminLayoutComponent,
     LoginComponent,
     SignupComponent,
+    IocExchangeComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
