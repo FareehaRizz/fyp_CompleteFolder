@@ -1,0 +1,137 @@
+/* Global Reset */
+body {
+  
+    /* font-family: 'Poppins', sans-serif;
+  background-color: #f9f5ff;
+  background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png'); 
+  color: #333; */
+
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fdf1ff, #f0f7ff);
+  color: #333;
+  }
+  
+  /* Card Styling */
+  .card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .card:hover {
+    box-shadow: 0 12px 40px rgba(108, 99, 255, 0.1);
+  }
+  
+  /* Header */
+  .header h4.title {
+    color: #2f2d5d;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  
+  /* Input Labels */
+  .form-group label {
+    color: #2f2d5d;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  /* Inputs */
+  .form-control {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 14px;
+  }
+/* Inputs */
+
+
+  
+  .form-control:focus {
+    border-color: #b19cd9;
+    box-shadow: 0 0 0 4px rgba(177, 156, 217, 0.15);
+  }
+
+  
+  
+  /* Textarea */
+  textarea.form-control {
+    resize: none;
+  }
+  
+  /* Update Button */
+  .btn-info.btn-fill {
+    background-color: #2f2d5d;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: 600;
+    color: white;
+    transition: background 0.3s;
+  }
+  
+  .btn-info.btn-fill:hover {
+    background-color: #b19cd9;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background: linear-gradient(160deg, #f7e1ff, #e0d4fd);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 25px 0;
+    box-shadow: 3px 0 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .sidebar .nav > li > a {
+    font-weight: 500;
+    font-size: 15px;
+    color: #2f2d5d;
+    padding: 12px 20px;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+  }
+  
+  .sidebar .nav > li > a:hover,
+  .sidebar .nav > li.active > a {
+    background: #efe4ff;
+    color: #2f2d5d;
+  }
+  
+  /* Add cute emojis to active menu items */
+  .sidebar .nav > li.active > a::before {
+    content: "💖 ";
+  }
+  
+  /* Form layout spacing */
+  /* .form-group {
+    margin-bottom: 20px;
+  }
+   */
+
+   /* Improve spacing inside input group */
+.form-group {
+    margin-bottom: 25px;
+  }
+  
+  /* Darken label color */
+  .form-group label {
+    color: #1f1f3d;
+  }
+  
+  /* Improve textarea look */
+  textarea.form-control {
+    min-height: 120px;
+    line-height: 1.6;
+  }
+  
+  /* Add subtle hover effect */
+  .form-control:hover {
+    border-color: #5e5a94;
+  }
+  

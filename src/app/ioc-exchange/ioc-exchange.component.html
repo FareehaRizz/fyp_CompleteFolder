@@ -1,34 +1,51 @@
-<div class="ioc-container">
+
+
+
+   <div class="ioc-container">
     <div class="card">
       <h2>IOC Exchange</h2>
   
+      <!-- IOC Submission Form -->
       <form (ngSubmit)="onShareIOC()" class="form-section">
-        <h3> Share an Indicator</h3>
+        <h3> Submit an IOC </h3>
+  
         <div class="form-row">
+          <!-- IOC Type Dropdown -->
           <div class="form-group">
-            <label>IOC Type</label>
-            <select [(ngModel)]="newIOC.type" name="type" required>
+            <label>IOC Type <span style="font-weight:normal;">(e.g., Malware, Phishing)</span></label>
+            <select [(ngModel)]="newIOC.type" name="type">
               <option *ngFor="let type of iocTypes" [value]="type">{{ type }}</option>
             </select>
           </div>
+  
+          <!-- IOC Title -->
           <div class="form-group">
-            <label>Indicator</label>
-            <input type="text" [(ngModel)]="newIOC.value" name="value" required />
+            <label>Threat Title / Summary</label>
+            <input type="text" [(ngModel)]="newIOC.title" name="title" required />
           </div>
         </div>
   
+        <!-- Threat Details -->
         <div class="form-group">
-          <label>Description</label>
-          <textarea [(ngModel)]="newIOC.description" name="description"></textarea>
+          <label>Threat Details</label>
+          <textarea [(ngModel)]="newIOC.details" name="details" required></textarea>
         </div>
   
+        <!-- File Upload -->
+        <div class="form-group">
+          <label>Attach File</label>
+          <input type="file" (change)="onFileChange($event)" required />
+        </div>
+  
+        <!-- Submit Button -->
         <button type="submit" class="btn-primary">Submit IOC</button>
       </form>
   
       <hr />
   
+      <!-- IOC Query Form -->
       <form (ngSubmit)="onQueryIOC()" class="form-section">
-        <h3> Query Indicators</h3>
+        <h3> Query IOCs </h3>
   
         <div class="form-row">
           <div class="form-group">
@@ -44,7 +61,7 @@
             <select [(ngModel)]="filters.status" name="status">
               <option value="">Any</option>
               <option value="validated">Validated</option>
-              <option value="pending validation">Pending Validation</option>
+              <option value="pending">Pending Validation</option>
             </select>
           </div>
         </div>
@@ -52,14 +69,15 @@
         <button type="submit" class="btn-secondary">Search</button>
       </form>
   
+      <!-- IOC Results -->
       <div *ngIf="queryResults.length > 0" class="results">
         <h4>Search Results</h4>
         <table>
           <thead>
             <tr>
               <th>Type</th>
+              <th>Title</th>
               <th>Value</th>
-              <th>Actor</th>
               <th>Status</th>
               <th>Last Seen</th>
             </tr>
@@ -67,8 +85,8 @@
           <tbody>
             <tr *ngFor="let result of queryResults">
               <td>{{ result.type }}</td>
+              <td>{{ result.title }}</td>
               <td>{{ result.value }}</td>
-              <td>{{ result.threatActor }}</td>
               <td>{{ result.status }}</td>
               <td>{{ result.lastSeen }}</td>
             </tr>
@@ -77,4 +95,3 @@
       </div>
     </div>
   </div>
-  

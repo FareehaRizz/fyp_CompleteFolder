@@ -10,11 +10,14 @@ export class IocExchangeComponent implements OnInit {
   constructor() { }
   ngOnInit(): void {}
   iocTypes: string[] = ['IP Address', 'Domain', 'Hash (SHA256)', 'URL', 'Email Address', 'File Path'];
+  title:string;
 
   newIOC = {
     type: '',
     value: '',
-    description: ''
+    description: '',
+    title: '',     
+  details: ''
   };
 
   queryTerm = '';
@@ -30,7 +33,8 @@ export class IocExchangeComponent implements OnInit {
     console.log('Sharing IOC to blockchain:', this.newIOC);
     // Connect to your smart contract or API here
     alert('IOC submitted to blockchain!');
-    this.newIOC = { type: '', value: '', description: '' };
+    this.newIOC = { type: '', value: '', description: '', title: '',     
+      details: ''  };
   }
 
   // Mock function: replace with your query logic
@@ -48,6 +52,6 @@ export class IocExchangeComponent implements OnInit {
       }
     ];
   }
-  
+  onFileChange($event){}
 
 }

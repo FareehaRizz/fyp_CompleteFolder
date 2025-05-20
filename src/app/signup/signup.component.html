@@ -4,13 +4,13 @@
     <form (ngSubmit)="onSubmit()">
       <div class="form-row">
         <div class="form-group">
-          <label for="fullname">Full Name</label>
+          <label for="fullname">Organization Name</label>
           <input
             type="text"
             id="fullname"
             name="fullname"
-            placeholder="Enter your full name"
-            [(ngModel)]="fullname"
+            placeholder="Enter your organization's full name"
+            [(ngModel)]="Orgname"
             required
           />
         </div>
@@ -21,23 +21,68 @@
             id="email"
             name="email"
             placeholder="Enter your email"
-            [(ngModel)]="email"
+            [(ngModel)]="Orgemail"
             required
           />
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label for="organization"> Organization </label>
+          <label for="organization"> Organization Position </label>
           <input
             type="text"
             id="organization"
             name="organization"
             placeholder="Enter organization"
-            [(ngModel)]="organization"
+            [(ngModel)]="OrgPosition"
             required
           />
         </div>
+        <div class="form-group">
+          <label for="city"> City </label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Enter city"
+            [(ngModel)]="city"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="country"> Country </label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            placeholder="Enter country"
+            [(ngModel)]="country"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="PostalCode"> Postal Code </label>
+          <input
+            type="text"
+            id="PostalCode"
+            name="PostalCode"
+            placeholder="Enter PostalCode"
+            [(ngModel)]="PostalCode"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="AboutOrg"> About Orgaanization </label>
+          <input
+            type="text"
+            id="AboutOrg"
+            name="AboutOrg"
+            placeholder="Enter AboutOrg"
+            [(ngModel)]="AboutOrg"
+            required
+          />
+        </div>
+
         <div class="form-group">
           <label for="password">Password</label>
           <input

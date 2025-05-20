@@ -8,11 +8,15 @@ import { Router } from "@angular/router";
   styleUrls: ["./signup.component.scss"],
 })
 export class SignupComponent implements OnInit {
-  fullname: string = "";
-  email: string = "";
+  Orgname: string = "";
+  Orgemail: string = "";
+  OrgPosition:string = "";
   password: string = "";
-  organization: string = "";
   public_key: string = "";
+  city: string = "";
+  country: string = "";
+  PostalCode: string = "";
+  AboutOrg: string = "";
   errorMessage = "";
 
   signupForm: FormGroup;
@@ -28,12 +32,17 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
   onSubmit() {
     let signupData = {
-      name: this.fullname,
-      email: this.email,
+      organizationName: this.Orgname,
+      OrganizationEmail: this.Orgemail,
+      organizationPosition: this.OrgPosition,
       password: this.password,
-      organization: this.organization,
       publicKey: this.public_key,
+      city: this.city,
+      country: this.country,
+      postalCode: this.PostalCode,
+      aboutOrganization: this.AboutOrg,
     };
+    
 
     this.errorMessage = "";
 
