@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, AfterViewInit, ChangeDetectionStrategy} from '@angular/core';
+import {Component, Input, OnInit, AfterViewInit, OnChanges, SimpleChanges, ChangeDetectionStrategy} from '@angular/core';
 import * as Chartist from 'chartist';
 
 export interface LegendItem {
@@ -7,9 +7,12 @@ export interface LegendItem {
 }
 
 export enum ChartType {
-  Pie,
-  Line,
-  Bar
+  // Pie,
+  // Line,
+  // Bar
+  Pie = 'Pie',
+  Line = 'Line',
+  Bar = 'Bar'
 }
 
 @Component({
@@ -17,8 +20,9 @@ export enum ChartType {
   templateUrl: './lbd-chart.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LbdChartComponent implements OnInit, AfterViewInit {
+export class LbdChartComponent implements OnInit, AfterViewInit, OnChanges {
   static currentId = 1;
+ // public chartId: string;
 
   @Input()
   public title: string;
@@ -57,22 +61,48 @@ export class LbdChartComponent implements OnInit, AfterViewInit {
 
   constructor() {
   }
+  private chart: any;
 
   public ngOnInit(): void {
     this.chartId = `lbd-chart-${LbdChartComponent.currentId++}`;
   }
 
+  // public ngAfterViewInit(): void {
+
+  //   switch (this.chartType) {
+  //     case ChartType.Pie:
+  //       new Chartist.Pie(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
+  //       break;
+  //     case ChartType.Line:
+  //       new Chartist.Line(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
+  //       break;
+  //     case ChartType.Bar:
+  //       new Chartist.Bar(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
+  //       break;
+  //   }
+  // }
   public ngAfterViewInit(): void {
+    this.renderChart();
+  }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes['chartData'] && !changes['chartData'].isFirstChange()) {
+      this.renderChart();
+    }
+  }
+
+  private renderChart(): void {
+    if (!this.chartData || !this.chartType) return;
 
     switch (this.chartType) {
       case ChartType.Pie:
-        new Chartist.Pie(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
+        this.chart = new Chartist.Pie(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
         break;
       case ChartType.Line:
-        new Chartist.Line(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
+        this.chart = new Chartist.Line(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
         break;
       case ChartType.Bar:
-        new Chartist.Bar(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
+        this.chart = new Chartist.Bar(`#${this.chartId}`, this.chartData, this.chartOptions, this.chartResponsive);
         break;
     }
   }
