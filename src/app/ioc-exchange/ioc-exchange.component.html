@@ -3,14 +3,14 @@
 
    <div class="ioc-container">
     <div class="card">
-      <h2>IOC Exchange</h2>
+      <!-- <h2>IOC Exchange</h2> -->
   
-      <!-- IOC Submission Form -->
+      
       <form (ngSubmit)="onShareIOC()" class="form-section">
         <h3> Submit an IOC </h3>
   
         <div class="form-row">
-          <!-- IOC Type Dropdown -->
+          
           <div class="form-group">
             <label>IOC Type <span style="font-weight:normal;">(e.g., Malware, Phishing)</span></label>
             <select [(ngModel)]="newIOC.type" name="type">
@@ -18,32 +18,32 @@
             </select>
           </div>
   
-          <!-- IOC Title -->
+          
           <div class="form-group">
             <label>Threat Title / Summary</label>
             <input type="text" [(ngModel)]="newIOC.title" name="title" required />
           </div>
         </div>
   
-        <!-- Threat Details -->
+        
         <div class="form-group">
           <label>Threat Details</label>
           <textarea [(ngModel)]="newIOC.details" name="details" required></textarea>
         </div>
   
-        <!-- File Upload -->
+        
         <div class="form-group">
           <label>Attach File</label>
           <input type="file" (change)="onFileChange($event)" required />
         </div>
   
-        <!-- Submit Button -->
+        
         <button type="submit" class="btn-primary">Submit IOC</button>
       </form>
   
       <hr />
   
-      <!-- IOC Query Form -->
+     
       <form (ngSubmit)="onQueryIOC()" class="form-section">
         <h3> Query IOCs </h3>
   
@@ -69,7 +69,7 @@
         <button type="submit" class="btn-secondary">Search</button>
       </form>
   
-      <!-- IOC Results -->
+      
       <div *ngIf="queryResults.length > 0" class="results">
         <h4>Search Results</h4>
         <table>
@@ -94,4 +94,7 @@
         </table>
       </div>
     </div>
-  </div>
+  </div> 
+
+
+ 
