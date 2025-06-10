@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 export class SignupComponent implements OnInit {
   Orgname: string = "";
   Orgemail: string = "";
-  OrgPosition:string = "";
+  OrgPosition: string = "";
   password: string = "";
   public_key: string = "";
   city: string = "";
@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     let signupData = {
       organizationName: this.Orgname,
-      OrganizationEmail: this.Orgemail,
+      email: this.Orgemail,
       organizationPosition: this.OrgPosition,
       password: this.password,
       publicKey: this.public_key,
@@ -42,7 +42,6 @@ export class SignupComponent implements OnInit {
       postalCode: this.PostalCode,
       aboutOrganization: this.AboutOrg,
     };
-    
 
     this.errorMessage = "";
 

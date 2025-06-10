@@ -1,100 +1,120 @@
+<div class="ioc-container">
+  <div class="card">
+    <form (ngSubmit)="onShareIOC()" class="form-section">
+      <h3>Submit an IOC</h3>
 
-
-
-   <div class="ioc-container">
-    <div class="card">
-      <!-- <h2>IOC Exchange</h2> -->
-  
-      
-      <form (ngSubmit)="onShareIOC()" class="form-section">
-        <h3> Submit an IOC </h3>
-  
-        <div class="form-row">
-          
-          <div class="form-group">
-            <label>IOC Type <span style="font-weight:normal;">(e.g., Malware, Phishing)</span></label>
-            <select [(ngModel)]="newIOC.type" name="type">
-              <option *ngFor="let type of iocTypes" [value]="type">{{ type }}</option>
-            </select>
-          </div>
-  
-          
-          <div class="form-group">
-            <label>Threat Title / Summary</label>
-            <input type="text" [(ngModel)]="newIOC.title" name="title" required />
-          </div>
-        </div>
-  
-        
+      <div class="form-row">
         <div class="form-group">
-          <label>Threat Details</label>
-          <textarea [(ngModel)]="newIOC.details" name="details" required></textarea>
+          <label
+            >IOC Type
+            <span style="font-weight: normal"
+              >(e.g., Malware, Phishing)</span
+            ></label
+          >
+          <select name="type">
+            <option *ngFor="let type of iocTypes" [value]="type">
+              {{ type }}
+            </option>
+          </select>
         </div>
-  
-        
+
         <div class="form-group">
-          <label>Attach File</label>
-          <input type="file" (change)="onFileChange($event)" required />
+          <label>IOC ID</label>
+          <input type="text" [(ngModel)]="newIOC.id" name="id" required />
         </div>
-  
-        
-        <button type="submit" class="btn-primary">Submit IOC</button>
-      </form>
-  
-      <hr />
-  
-     
-      <form (ngSubmit)="onQueryIOC()" class="form-section">
-        <h3> Query IOCs </h3>
-  
-        <div class="form-row">
-          <div class="form-group">
-            <label>Search Indicator</label>
-            <input type="text" [(ngModel)]="queryTerm" name="queryTerm" placeholder="IP, Domain, Hash..." />
-          </div>
-          <div class="form-group">
-            <label>Threat Actor</label>
-            <input type="text" [(ngModel)]="filters.threatActor" name="threatActor" />
-          </div>
-          <div class="form-group">
-            <label>Status</label>
-            <select [(ngModel)]="filters.status" name="status">
-              <option value="">Any</option>
-              <option value="validated">Validated</option>
-              <option value="pending">Pending Validation</option>
-            </select>
-          </div>
+
+        <div class="form-group">
+          <label>Submitted By</label>
+          <input
+            type="text"
+            [(ngModel)]="newIOC.submittedBy"
+            name="submittedBy"
+            required
+          />
         </div>
-  
-        <button type="submit" class="btn-secondary">Search</button>
-      </form>
-  
-      
-      <div *ngIf="queryResults.length > 0" class="results">
-        <h4>Search Results</h4>
-        <table>
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Title</th>
-              <th>Value</th>
-              <th>Status</th>
-              <th>Last Seen</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let result of queryResults">
-              <td>{{ result.type }}</td>
-              <td>{{ result.title }}</td>
-              <td>{{ result.value }}</td>
-              <td>{{ result.status }}</td>
-              <td>{{ result.lastSeen }}</td>
-            </tr>
-          </tbody>
-        </table>
+
+        <div class="form-group">
+          <label>Threat Name</label>
+          <input
+            type="text"
+            [(ngModel)]="newIOC.threatName"
+            name="threatName"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>IPFS Hash</label>
+          <input
+            type="text"
+            [(ngModel)]="newIOC.ipfsHash"
+            name="ipfsHash"
+            required
+          />
+        </div>
       </div>
+
+      <button type="submit" class="btn-primary">Submit IOC</button>
+    </form>
+
+    <hr />
+
+    <form (ngSubmit)="onQueryIOC()" class="form-section">
+      <h3>Query IOCs</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Search Indicator</label>
+          <input
+            type="text"
+            [(ngModel)]="queryTerm"
+            name="queryTerm"
+            placeholder="IP, Domain, Hash..."
+          />
+        </div>
+        <div class="form-group">
+          <label>Threat Actor</label>
+          <input
+            type="text"
+            [(ngModel)]="filters.threatActor"
+            name="threatActor"
+          />
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select [(ngModel)]="filters.status" name="status">
+            <option value="">Any</option>
+            <option value="validated">Validated</option>
+            <option value="pending">Pending Validation</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-secondary">Search</button>
+    </form>
+
+    <div *ngIf="queryResults.length > 0" class="results">
+      <h4>Search Results</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Value</th>
+            <th>Status</th>
+            <th>Last Seen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let result of queryResults">
+            <td>{{ result.type }}</td>
+            <td>{{ result.title }}</td>
+            <td>{{ result.value }}</td>
+            <td>{{ result.status }}</td>
+            <td>{{ result.lastSeen }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div> 
-
-
- 
+  </div>
+</div>
