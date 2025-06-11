@@ -36,53 +36,53 @@ export class LoginComponent implements OnInit {
   //   }
   // }
 
-  login() {
-    if (
-      this.email === this.staticCredentials.email &&
-      this.password === this.staticCredentials.password
-    ) {
-      localStorage.setItem("isLoggedIn", "true"); // Store login state
-      this.router.navigate(["/dashboard"]); // Redirect to dashboard
-    } else {
-      alert("Invalid email or password");
-    }
-  }
-
-  //   login() {
-  //     let loginData = { email: this.email, password: this.password };
-  //     if (!this.email || !this.password) {
-  //       this.errorMessage = "Email and Password are required";
-  //       return;
-  //     }
-
-  //     fetch("http://localhost:5000/auth/login", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(loginData),
-  //       credentials: "include",
-  //     })
-  //       .then(async (response) => {
-  //         const resData = await response.json();
-  //         if (!response.ok) {
-  //           // Check if the error is a structured object
-  //           if (resData.error) {
-  //             const firstErrorKey = Object.keys(resData.error)[0];
-  //             this.errorMessage = resData.error[firstErrorKey];
-  //           } else {
-  //             this.errorMessage = "Login failed. Please try again.";
-  //           }
-  //           throw new Error(this.errorMessage);
-  //         }
-
-  //         // Login successful
-  //         this.router.navigate(["/dashboard"]);
-  //       })
-  //       .catch((err) => {
-  //         console.error("Login error:", err);
-  //       });
+  // login() {
+  //   if (
+  //     this.email === this.staticCredentials.email &&
+  //     this.password === this.staticCredentials.password
+  //   ) {
+  //     localStorage.setItem("isLoggedIn", "true"); // Store login state
+  //     this.router.navigate(["/dashboard"]); // Redirect to dashboard
+  //   } else {
+  //     alert("Invalid email or password");
   //   }
+  // }
+
+    login() {
+      let loginData = { email: this.email, password: this.password };
+      if (!this.email || !this.password) {
+        this.errorMessage = "Email and Password are required";
+        return;
+      }
+
+      fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+        credentials: "include",
+      })
+        .then(async (response) => {
+          const resData = await response.json();
+          if (!response.ok) {
+            // Check if the error is a structured object
+            if (resData.error) {
+              const firstErrorKey = Object.keys(resData.error)[0];
+              this.errorMessage = resData.error[firstErrorKey];
+            } else {
+              this.errorMessage = "Login failed. Please try again.";
+            }
+            throw new Error(this.errorMessage);
+          }
+
+          // Login successful
+          this.router.navigate(["/dashboard"]);
+        })
+        .catch((err) => {
+          console.error("Login error:", err);
+        });
+    }
 
   onSubmit() {
     this.login();

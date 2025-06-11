@@ -27,18 +27,18 @@
           <label>Submitted By *</label>
           <input
             type="text"
-            [(ngModel)]="newIOC.submittedBy"
-            name="submittedBy"
+            [(ngModel)]="newIOC.reporter"
+            name="reporter"
             required
           />
         </div>
 
         <div class="form-group">
-          <label>Threat Name *</label>
+          <label>Threat Detail</label>
           <input
             type="text"
-            [(ngModel)]="newIOC.threatName"
-            name="threatName"
+            [(ngModel)]="newIOC.details"
+            name="details"
             required
           />
         </div>
@@ -59,62 +59,77 @@
 
     <hr />
 
-    <form (ngSubmit)="onQueryIOC()" class="form-section">
-      <h3 style="font-family: 'Anton', sans-serif; font-size: 38px; color: white;">QUERY IOCs</h3>
+    <div class="container mt-4">
+      <h3>Query IOC by ID</h3>
+
+      <form (ngSubmit)="onQueryById()" class="mb-3">
+        <div class="form-group">
+          <label for="iocId">IOC ID</label>
+          <input
+            type="text"
+            id="iocId"
+            class="form-control"
+            name="iocId"
+            [(ngModel)]="iocId"
+            required
+          />
+        </div>
+        <button class="btn btn-primary mt-2" type="submit">Fetch IOC</button>
+      </form>
+
+      <div *ngIf="error" class="alert alert-danger">
+        {{ error }}
+      </div>
+
+      <div *ngIf="iocResult" class="card p-3" 
+     style="background: #23272b; border: 2px solid #fff; box-shadow: 0 2px 12px #0008; color: #fff;">
+  <h5 style="font-family: 'Anton', sans-serif; font-size: 26px; font-weight: 900; color: #fff; text-shadow: 1px 1px 4px #000;">
+    IOC Details
+  </h5>
+  <p><strong>ID:</strong> {{ iocResult.id }}</p>
+  <p><strong>Submitted By:</strong> {{ iocResult.reporter }}</p>
+  <p><strong>Threat Detail:</strong> {{ iocResult.details }}</p>
+  <p><strong>IPFS Hash:</strong> {{ iocResult.ipfsHash }}</p>
+</div>
+
+    <hr />
+    <form (ngSubmit)="onValidateIOC()" class="form-section">
+      <h3>Validate an IOC</h3>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Search Indicator</label>
+          <label>IOC ID</label>
           <input
             type="text"
-            [(ngModel)]="queryTerm"
-            name="queryTerm"
-            placeholder="IP, Domain, Hash..."
+            [(ngModel)]="validateId"
+            name="validateId"
+            required
           />
         </div>
+
         <div class="form-group">
-          <label>Threat Actor</label>
+          <label>Validator Name</label>
           <input
             type="text"
-            [(ngModel)]="filters.threatActor"
-            name="threatActor"
+            [(ngModel)]="validatorName"
+            name="validatorName"
+            required
           />
-        </div>
-        <div class="form-group">
-          <label>Status</label>
-          <select [(ngModel)]="filters.status" name="status">
-            <option value="">Any</option>
-            <option value="validated">Validated</option>
-            <option value="pending">Pending Validation</option>
-          </select>
         </div>
       </div>
 
-      <button type="submit" class="btn-secondary">Search</button>
-    </form>
+      <button type="submit" class="btn-secondary">Validate IOC</button>
 
-    <div *ngIf="queryResults.length > 0" class="results">
-      <h4>Search Results</h4>
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Title</th>
-            <th>Value</th>
-            <th>Status</th>
-            <th>Last Seen</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let result of queryResults">
-            <td>{{ result.type }}</td>
-            <td>{{ result.title }}</td>
-            <td>{{ result.value }}</td>
-            <td>{{ result.status }}</td>
-            <td>{{ result.lastSeen }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <div *ngIf="validateMessage" class="success" style="margin-top: 10px">
+        {{ validateMessage }}
+      </div>
+      <div
+        *ngIf="validateError"
+        class="error"
+        style="color: white; margin-top: 10px"
+      >
+        {{ validateError }}
+      </div>
+    </form>
   </div>
 </div>

@@ -30,6 +30,7 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  
   onSubmit() {
     let signupData = {
       organizationName: this.Orgname,
