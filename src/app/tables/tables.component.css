@@ -1,0 +1,29 @@
+.main-content {
+    background-color: #18191a;
+}
+/* Add to your styles.css or tables.component.css */
+.validated-iocs-card {
+    background: #18191a !important; /* light grey */
+    border-radius: 10px;
+}
+.validated-iocs-card .header,
+.validated-iocs-card .content {
+    background: transparent !important;
+}
+.validated-iocs-card th {
+    color: #fff !important;
+    font-weight: bold !important;
+    background: transparent !important;
+}
+.card {
+    font-weight: 600;
+    box-shadow: 0 12px 40px #8dd580;
+    color: #fff !important;
+    
+}
+.card tbody tr:hover td {
+    color: #18191a !important;
+    background: #e0e0e0 !important;
+    transition: color 0.2s, background 0.2s;
+}
+

@@ -1,13 +1,13 @@
 <div class="ioc-container">
   <div class="card">
     <form (ngSubmit)="onShareIOC()" class="form-section">
-      <h3>Submit an IOC</h3>
+      <h3 style="font-family: 'Anton', sans-serif; font-size: 38px; color: white;">SUBMIT AN IOC</h3>
 
       <div class="form-row">
         <div class="form-group">
           <label
             >IOC Type
-            <span style="font-weight: normal"
+            <span style="font-weight: normal; color: white; "
               >(e.g., Malware, Phishing)</span
             ></label
           >
@@ -19,12 +19,12 @@
         </div>
 
         <div class="form-group">
-          <label>IOC ID</label>
+          <label>IOC ID *</label>
           <input type="text" [(ngModel)]="newIOC.id" name="id" required />
         </div>
 
         <div class="form-group">
-          <label>Submitted By</label>
+          <label>Submitted By *</label>
           <input
             type="text"
             [(ngModel)]="newIOC.submittedBy"
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-          <label>Threat Name</label>
+          <label>Threat Name *</label>
           <input
             type="text"
             [(ngModel)]="newIOC.threatName"
@@ -44,7 +44,7 @@
         </div>
 
         <div class="form-group">
-          <label>IPFS Hash</label>
+          <label>IPFS Hash *</label>
           <input
             type="text"
             [(ngModel)]="newIOC.ipfsHash"
@@ -60,7 +60,7 @@
     <hr />
 
     <form (ngSubmit)="onQueryIOC()" class="form-section">
-      <h3>Query IOCs</h3>
+      <h3 style="font-family: 'Anton', sans-serif; font-size: 38px; color: white;">QUERY IOCs</h3>
 
       <div class="form-row">
         <div class="form-group">

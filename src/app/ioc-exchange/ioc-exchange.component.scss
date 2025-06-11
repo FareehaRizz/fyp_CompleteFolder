@@ -101,27 +101,30 @@
   
 
 .ioc-container {
-    padding: 30px;
+    padding: 50px;
     display: flex;
     justify-content: center;
+     background-color: #18191a;
 }
 
 .card {
     width: 100%;
-    background-color: #fff;
+    //background-color: #666060;
+    background-color: #18191a;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     padding: 30px;
     transition: all 0.3s ease;
     margin-top: 20px;
+    box-shadow: 0 12px 40px #8dd580;
 }
 
-.card:hover {
-    box-shadow: 0 12px 40px rgba(108, 99, 255, 0.1);
-}
+// .card:hover {
+//     box-shadow: 0 12px 40px rgba(145, 235, 118, 0.1);
+// }
 
 h2, h3, h4 {
-    color: #2f2d5d;
+    color: #67bd6e;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     margin-bottom: 20px;
@@ -132,12 +135,15 @@ h2, h3, h4 {
 }
 
 .form-row {
+ 
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+   
 }
 
 .form-group {
+  // color: white ;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -145,10 +151,11 @@ h2, h3, h4 {
 }
 
 label {
-    color: #1f1f3d;
-    font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 5px;
+   color: white;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 5px;
+  min-height: 40px; /* ensures all labels align */
 }
 
 input, select, textarea {
@@ -177,19 +184,19 @@ textarea {
 
 .btn-primary,
 .btn-secondary {
-    background-color: #2f2d5d;
+    background-color: #20e672;
     border: none;
     border-radius: 25px;
     padding: 10px 25px;
     font-weight: 600;
-    color: white;
+    color: rgb(19, 18, 18);
     transition: background 0.3s;
     cursor: pointer;
 }
 
 .btn-primary:hover,
 .btn-secondary:hover {
-    background-color: #b19cd9;
+    background-color: #9cd9a9;
 }
 
 table {

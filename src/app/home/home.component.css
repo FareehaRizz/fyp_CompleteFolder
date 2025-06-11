@@ -1,0 +1,20 @@
+.main-content {
+    background-color: #18191a;
+}
+::ng-deep lbd-chart .header .title,
+::ng-deep lbd-chart .card .header .title {
+    font-family: 'Anton', sans-serif;
+    font-size: 18px;
+    color: #18191a !important;
+    font-weight: bold !important;
+}
+
+::ng-deep lbd-chart .header .category,
+::ng-deep lbd-chart .card .header .category {
+    color: #18191a !important;
+}
+
+::ng-deep lbd-chart .footer,
+::ng-deep lbd-chart .card .footer {
+    color: #18191a !important;
+}

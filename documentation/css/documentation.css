@@ -24,7 +24,7 @@
 .header-wrapper .navbar-default{
     box-shadow: 0 14px 20px -12px rgba(0, 0, 0, 0.2);
     color: #444;
-    background-color: white;
+    background-color: rgb(186, 100, 100);
 }
 .header-wrapper .navbar-default .btn{
     color: #444;

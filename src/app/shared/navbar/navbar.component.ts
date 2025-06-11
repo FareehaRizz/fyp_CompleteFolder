@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from "@angular/core";
 import { ROUTES } from "../../sidebar/sidebar.component";
+import { Router } from '@angular/router';
 import {
   Location,
   LocationStrategy,
@@ -17,7 +18,7 @@ export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
 
-  constructor(location: Location, private element: ElementRef) {
+  constructor(location: Location, private element: ElementRef, private router: Router) {
     this.location = location;
     this.sidebarVisible = false;
   }
@@ -67,15 +68,32 @@ export class NavbarComponent implements OnInit {
     return "Dashboard";
   }
 
-  handleLogout() {
+  // handleLogout() {
+  //   fetch("http://localhost:5000/auth/logout", {
+  //     method: "GET",
+  //     credentials: "include",
+  //   })
+  //     .then((res) => {
+  //       if (res.status == 200) {
+  //         return res;
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log("Logout successful:", data);
+  //     })
+  //     .catch((err) => console.error("Logout error:", err));
+  // }
+   handleLogout() {
     fetch("http://localhost:5000/auth/logout", {
       method: "GET",
       credentials: "include",
     })
       .then((res) => {
         if (res.status == 200) {
-          return res;
+          // Redirect to login page after successful logout
+          this.router.navigate(['/login']);
         }
+        return res;
       })
       .then((data) => {
         console.log("Logout successful:", data);

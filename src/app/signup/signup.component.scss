@@ -1,32 +1,59 @@
+// .signup-container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100vh;
+//   ///  background-color: #f5f5f5;
+//     background-image: url('/assets/img/sidebar-7.jpg');
+//     background-size: cover;
+//     background-position: center;
+//     background-color: rgba(0, 0, 0, 0.5); // Dark overlay (50% opacity)
+//   }
+  
+//   .signup-card {
+   
+//    background: #232526;
+//     padding: 2rem;
+//     border-radius: 8px;
+//     box-shadow: 0 0 32px 4px #8dd580; // Cool box shadow
+//     width: 100%;
+//     max-width: 800px;
+//     text-align: center;
+//     color: white; // Set text color to white for better contrast
+//   }
 .signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-  ///  background-color: #f5f5f5;
-    background-image: url('/assets/img/sidebar-6.jpg');
+    position: relative;
+    overflow: hidden;
+}
+
+.signup-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('/assets/img/sidebar-7.jpg');
     background-size: cover;
     background-position: center;
-    background-color: rgba(0, 0, 0, 0.5); // Dark overlay (50% opacity)
-  }
-  
-  .signup-card {
-    // background: white;
-    // padding: 2rem;
-    // border-radius: 8px;
-    // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    // width: 100%;
-    // max-width: 400px;
-    // text-align: center;
-    background: linear-gradient(135deg, #463659, #000000); // Gradient: Dark purple to black
+   // opacity: 0.5; // 50% opacity
+    z-index: 0;
+   filter: blur(8px) brightness(0.7);
+}
+
+.signup-card {
+    position: relative;
+    z-index: 1;
+    background: #232526;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); // Cool box shadow
+    box-shadow: 0 0 32px 4px #8dd580;
     width: 100%;
     max-width: 800px;
     text-align: center;
-    color: white; // Set text color to white for better contrast
-  }
+    color: white;
+}
   
   h2 {
     margin-bottom: 1.5rem;
@@ -49,7 +76,7 @@
     display: block;
     margin-bottom: 0.5rem;
     //color: #555;
-    color: #d1c4e9; // Light purple for labels
+    color: white; // Light purple for labels
   }
   
 //   input {
@@ -62,7 +89,7 @@
   input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #7e57c2; // Purple border for input fields
+    border: 1px solid #20e672; // Purple border for input fields
     border-radius: 4px;
     font-size: 1rem;
     background-color: rgba(255, 255, 255, 0.1); // Semi-transparent white background
@@ -71,7 +98,7 @@
   }
   
   input:focus {
-    border-color: #b39ddb; // Light purple border on focus
+    border-color: #20e672; // Light purple border on focus
     background-color: rgba(255, 255, 255, 0.2); // Slightly darker background on focus
     outline: none; // Remove default outline
   }
@@ -79,8 +106,8 @@
   .signup-button {
     width: 100%;
     padding: 0.75rem;
-    background-color: #007bff;
-    color: white;
+    background-color: #20e672;
+    color: black;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -90,8 +117,8 @@
   }
   
   .signup-button:hover {
-   // background-color: #0056b3;
-   background-color: #c4b1eb; // Darker purple on hover
+   background: #8dd580;
+    color: #18191a;
   }
   
   .login-text {

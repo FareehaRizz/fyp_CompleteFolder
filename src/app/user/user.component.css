@@ -10,35 +10,43 @@ body {
   background: linear-gradient(135deg, #fdf1ff, #f0f7ff);
   color: #333;
   }
+  .main-content {
+    background-color: #18191a;
+}
+h2, h3, h4 {
+       
+    font-weight: 600;
+    margin-bottom: 20px;
+}
   
   /* Card Styling */
   .card {
-    background-color: #fff;
+    background-color: #18191a;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    
     padding: 30px;
     transition: all 0.3s ease;
     margin-top: 20px;
+     box-shadow: 0 12px 40px #8dd580;
   }
+  label {
+   color: white;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 5px;
+  min-height: 40px; /* ensures all labels align */
+}
   
-  .card:hover {
-    box-shadow: 0 12px 40px rgba(108, 99, 255, 0.1);
-  }
   
   /* Header */
-  .header h4.title {
+  /* .header h4.title {
     color: #2f2d5d;
     font-weight: 600;
     margin-bottom: 30px;
-  }
+  } */
   
   /* Input Labels */
-  .form-group label {
-    color: #2f2d5d;
-    font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
+ 
   
   /* Inputs */
   .form-control {
@@ -119,10 +127,7 @@ body {
     margin-bottom: 25px;
   }
   
-  /* Darken label color */
-  .form-group label {
-    color: #1f1f3d;
-  }
+ 
   
   /* Improve textarea look */
   textarea.form-control {

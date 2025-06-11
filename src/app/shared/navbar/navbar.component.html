@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="background-color: #18191a;">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <div class="navbar-header" >
       <button
         type="button"
         class="navbar-toggle"
@@ -12,7 +12,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <h2 class="navbar-brand" style="font-size: 25px; font-weight: bold;">{{ getTitle() }}</h2>
+      <h2 class="navbar-brand" style="font-family: 'Anton', sans-serif; font-size: 25px; color: rgb(103, 100, 100); margin-left: 20px ;">{{ getTitle() }}</h2>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-left">
@@ -67,9 +67,14 @@
             <li><a href="#">Separated link</a></li>
           </ul> 
         </li> -->
-        <li>
+        <!-- <li>
           <a href="#" (click)="handleLogout()"> Log out </a>
-        </li>
+        </li> -->
+        <li>
+  <button type="button" style="background-color: #20e672; border: none; border-radius: 25px; padding: 10px 25px; font-weight: 600; color: rgb(19, 18, 18); transition: background 0.3s; cursor: pointer; margin-top: 20px; margin-left: -10px;" (click)="handleLogout()">
+    <i class="fa fa-sign-out"></i> Log out
+  </button>
+</li>
         <li class="separator hidden-lg hidden-md"></li>
       </ul>
     </div>
